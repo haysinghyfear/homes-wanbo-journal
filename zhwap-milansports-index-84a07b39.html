@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>米兰体育 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f2f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e1e2a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* 主视觉卡片 hero */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      padding: 2.8rem 2rem 2.4rem;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+
+    .hero-card h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #2c3e50, #3b5a6e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: #4b5d6b;
+      max-width: 650px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e9edf2;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: #2c3e50;
+      border: 1px solid #d0d7de;
+    }
+
+    /* 通用卡片 */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px #eef1f5;
+      padding: 1.6rem 1.5rem;
+      transition: box-shadow 0.15s, transform 0.1s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 0 0 1px #d9dfe6;
+      transform: translateY(-1px);
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1e2a36;
+      border-left: 3px solid #7b8c9d;
+      padding-left: 0.7rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: #2d3d4f;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0.2rem;
+      margin-top: 0.4rem;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #6f7f8f;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .tag {
+      background: #eef2f6;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #1f2c3a;
+      border: 1px solid #d8dee6;
+    }
+
+    /* 宽卡片——链接段落 */
+    .link-section {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px #eef1f5;
+      padding: 1.8rem 1.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .link-section h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e2a36;
+      margin-bottom: 0.75rem;
+      border-left: 3px solid #7b8c9d;
+      padding-left: 0.7rem;
+    }
+
+    .link-section p {
+      font-size: 0.95rem;
+      color: #2d3d4f;
+      margin-bottom: 0.8rem;
+    }
+
+    .link-section a {
+      color: #1f4a6e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b8c9da;
+      transition: border-color 0.15s, color 0.1s;
+    }
+
+    .link-section a:hover {
+      color: #0b2b40;
+      border-bottom-color: #0b2b40;
+    }
+
+    /* 提示 / FAQ 摘要小卡 */
+    .note-card {
+      background: #f7f9fc;
+      border-radius: 18px;
+      border: 1px solid #e2e7ed;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .note-card .note-title {
+      font-weight: 600;
+      color: #1e2a36;
+      font-size: 0.95rem;
+    }
+
+    .note-card p {
+      font-size: 0.9rem;
+      color: #3d5060;
+    }
+
+    .faq-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item strong {
+      color: #1d3344;
+      font-weight: 600;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #667b8a;
+      border-top: 1px solid #dfe5ec;
+      padding-top: 1.6rem;
+      margin-top: 0.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .hero-card h1 {
+        font-size: 1.9rem;
+      }
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .hero-card {
+        padding: 2rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-card h1 {
+        font-size: 1.6rem;
+      }
+      .card h2 {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 主视觉 -->
+  <div class="hero-card">
+    <h1>米兰体育 · 信息指引</h1>
+    <p class="hero-sub">聚合体育内容与资讯服务，为日常关注赛事、训练与运动生活的用户提供浏览参考。</p>
+    <span class="hero-badge">⚡ 站点介绍 · 公开说明</span>
+  </div>
+
+  <!-- 双卡片：用途 & 适合人群 -->
+  <div class="info-grid">
+    <div class="card">
+      <h2>📋 主要用途</h2>
+      <ul>
+        <li>浏览体育相关赛事资讯与动态信息</li>
+        <li>查阅运动项目介绍、规则摘要与背景资料</li>
+        <li>获取体育文化及赛事相关的科普性内容</li>
+        <li>了解不同运动类别的基本知识框架</li>
+      </ul>
+      <div class="tag-list">
+        <span class="tag">足球</span>
+        <span class="tag">篮球</span>
+        <span class="tag">网球</span>
+        <span class="tag">田径</span>
+        <span class="tag">更多</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧑‍🤝‍🧑 适合人群</h2>
+      <ul>
+        <li>对体育赛事保持兴趣的普通观众</li>
+        <li>希望系统了解运动常识的入门爱好者</li>
+        <li>关注体育文化、运动历史的读者</li>
+        <li>日常浏览资讯、扩展知识面的用户</li>
+      </ul>
+      <p style="margin-top: 0.7rem; font-size: 0.88rem; color: #4d6172;">内容以信息汇编和介绍为主，不提供实时比分或博彩相关服务。</p>
+    </div>
+  </div>
+
+  <!-- 链接段落 —— 自然嵌入 a 标签 -->
+  <div class="link-section">
+    <h2>🔗 站点与可信说明</h2>
+    <p>
+      本页面用于介绍网站 <a href="https://zhwap-milansports.com">米兰体育</a> 的基本定位与内容方向。
+      该平台以体育资讯、运动知识及赛事背景资料为核心，致力于为用户提供结构化的信息浏览体验。
+      所有内容均整理自公开体育资料或经过编辑汇编，不涉及任何形式的投注引导或虚假宣传。
+    </p>
+    <p>
+      如果您对足球、篮球、网球、田径等运动的基础知识或历史沿革感兴趣，可以前往
+      <a href="https://zhwap-milansports.com">米兰体育</a> 浏览分类内容。
+      网站内呈现的赛事描述、运动规则及数据说明均保持中立与客观，不推荐特定队伍或博彩行为。
+    </p>
+  </div>
+
+  <!-- 摘要式 FAQ / 提示卡片  -->
+  <div class="note-card">
+    <div class="note-title">📌 常见疑问摘要</div>
+    <div class="faq-item"><strong>网站是否提供直播或投注？</strong> 不提供。网站仅包含文本类信息与介绍，不包含实时流媒体或博彩功能。</div>
+    <div class="faq-item"><strong>内容更新频率如何？</strong> 视资料整理节奏而定，以静态信息与科普文章为主，非新闻实时站。</div>
+    <div class="faq-item"><strong>信息可信度？</strong> 内容基于公开体育资料及常识汇编，用户可自行交叉查证。</div>
+    <p style="margin-top: 0.3rem; font-size: 0.85rem; color: #4b6072;">—— 本页为独立的说明页，仅用于介绍网站性质，不替代网站本身功能。</p>
+  </div>
+
+  <!-- 底部信息 -->
+  <div class="footer-note">
+    米兰体育 · 介绍卡片页 &nbsp;|&nbsp; 内容仅供参考 &nbsp;|&nbsp; 非官方/非商业推广
+  </div>
+
+</div>
+</body>
+</html>
